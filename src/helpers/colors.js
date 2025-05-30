@@ -31,12 +31,12 @@ export const COLOR = {
     PRIMARYLIGHT: 'rgba(44, 51, 153, 1)',
 
     GREEN: 'rgba(1, 139, 90, 1)',
-    LIGHTGREEN: 'rgba(191, 277, 210, 1)',
+    LIGHTGREEN: 'rgba(191, 227, 210, 1)',
 
     OPTIONICONLIGHT: 'rgba(228, 230, 255, 0.2)',
 }
 
-const CARD_COLORS = [
+export const CARD_COLORS = [
     {
         background: 'rgba(14, 76, 146, 0.1)',
         color: 'rgba(14, 76, 146, 1)',
@@ -63,7 +63,7 @@ const CARD_COLORS = [
     },
 ]
 
-const FLAG_COLOR = {
+export const FLAG_COLOR = {
     must: 'rgba(175, 0, 0, 1)',
     important: 'rgba(255, 103, 30, 1)',
 }
