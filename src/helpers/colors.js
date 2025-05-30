@@ -32,6 +32,8 @@ export const COLOR = {
 
     GREEN: 'rgba(1, 139, 90, 1)',
     LIGHTGREEN: 'rgba(191, 277, 210, 1)',
+
+    OPTIONICONLIGHT: 'rgba(228, 230, 255, 0.2)',
 }
 
 const CARD_COLORS = [
