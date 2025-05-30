@@ -92,7 +92,7 @@ const DateController = ({
                             },
                         },
                     ],
-                    { useNativeDriver: false }
+                    { useNativeDriver: true }
                 )
             }
         />
