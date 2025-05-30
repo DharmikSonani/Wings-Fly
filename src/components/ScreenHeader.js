@@ -35,7 +35,7 @@ const ScreenHeader = ({
                         useMemo(() =>
                             <Ionicons
                                 name='search-outline'
-                                size={ResponsiveSizeWp(24)}
+                                size={ResponsiveSizeWp(22)}
                                 color={iconColor}
                             />, [])
                     }
@@ -45,7 +45,7 @@ const ScreenHeader = ({
                         useMemo(() =>
                             <Ionicons
                                 name='calendar-outline'
-                                size={ResponsiveSizeWp(24)}
+                                size={ResponsiveSizeWp(22)}
                                 color={iconColor}
                             />, [])
                     }
@@ -55,7 +55,7 @@ const ScreenHeader = ({
                         useMemo(() =>
                             <AntDesign
                                 name='questioncircleo'
-                                size={ResponsiveSizeWp(24)}
+                                size={ResponsiveSizeWp(20)}
                                 color={iconColor}
                             />, [])
                     }
