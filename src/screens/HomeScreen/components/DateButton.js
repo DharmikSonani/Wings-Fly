@@ -5,6 +5,7 @@ import { ResponsiveSizeWp } from '../../../helpers/responsive'
 import { FontFamily } from '../../../helpers/fonts'
 
 const DateButton = ({
+    index,
     selected,
     data,
     onSelect = () => { },
@@ -12,7 +13,7 @@ const DateButton = ({
     return (
         <TouchableOpacity
             style={[styles.Container, selected && styles.SelectedContainer]}
-            onPress={useCallback(() => { onSelect(data.date) }, [])}
+            onPress={useCallback(() => { onSelect(data.date, index) }, [])}
         >
             <View style={[styles.DayContainer]}>
                 <Text style={[styles.DayStyle, styles.TextStyle, selected && styles.SelectedTextStyle]} numberOfLines={1}>

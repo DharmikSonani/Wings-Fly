@@ -7,7 +7,6 @@ const useScreenHooks = () => {
     // Variables
     const options = OPTIONS_DRAWER_DATA;
 
-
     // UseStates
     const [tasks, setTasks] = useState(TASK_DATA);
     const [drawerVisible, setDrawerVisibility] = useState(false);
@@ -17,10 +16,14 @@ const useScreenHooks = () => {
 
     // UseEffects
     useEffect(() => {
-        const completed = TASK_DATA.filter(task => task.status === "completed").length;
-        const total = TASK_DATA.length;
+        const completed = tasks.filter(task => task.status === "completed").length;
+        const total = tasks.length;
         setProgress(Math.round((completed / total) * 100));
-    }, [])
+    }, [tasks])
+
+    useEffect(() => {
+        setTasks(TASK_DATA);
+    }, [selectedDate])
 
     // Methods
     const handleAddButtonPress = () => {
@@ -44,11 +47,6 @@ const useScreenHooks = () => {
             t.title === task.title ? { ...t, status: 'completed' } : t
         );
         setTasks(updatedTasks);
-
-        const completedCount = updatedTasks.filter(t => t.status === 'completed').length;
-        const totalCount = updatedTasks.length;
-        const newProgress = Math.round((completedCount / totalCount) * 100);
-        setProgress(newProgress);
     }, [tasks]);
 
     return {
