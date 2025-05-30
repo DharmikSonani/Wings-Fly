@@ -1,6 +1,3 @@
-# Screenrecording
-![Video](./Preview/Working%20Demo.mp4)
-
 # Screenshots
 ![HomeScreen](./Preview/Home%20Screen.png)
 ![BottomDrawer](./Preview/Bottom%20Drawer.png)
