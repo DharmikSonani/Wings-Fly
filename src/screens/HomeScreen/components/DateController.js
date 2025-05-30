@@ -37,8 +37,7 @@ const DateController = ({
 
     const handleScroll = useCallback((index) => {
         const totalOffset = ResponsiveSizeWp(57) * index;
-        const subOffset = (screenWidth / 2) - (ResponsiveSizeWp(69) / 2);
-        const offset = totalOffset - subOffset;
+        const offset = totalOffset;
         ref.current?.scrollToOffset({ offset, animated: true });
     }, [ref, screenWidth])
 
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
         flexGrow: 0,
     },
     ContentContainer: {
-        paddingHorizontal: ResponsiveSizeWp(12),
+        paddingHorizontal: (screenWidth / 2) - (ResponsiveSizeWp(45) / 2),
         gap: ResponsiveSizeWp(12),
         paddingVertical: ResponsiveSizeWp(10),
     },

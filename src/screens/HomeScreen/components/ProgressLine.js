@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     Container: {
         gap: ResponsiveSizeWp(2),
         position: 'absolute',
-        bottom: ResponsiveSizeWp(5),
+        bottom: ResponsiveSizeWp(0),
         left: ResponsiveSizeWp(9),
         right: ResponsiveSizeWp(9),
     },
