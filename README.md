@@ -1,4 +1,9 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Screenrecording
+![Video](./Preview/Working%20Demo.mp4)
+
+# Screenshots
+![HomeScreen](./Preview/Home%20Screen.png)
+![BottomDrawer](./Preview/Bottom%20Drawer.png)
 
 # Getting Started
 
@@ -62,6 +67,3 @@ If everything is set up correctly, you should see your new app running in the An
 
 This is one way to run your app — you can also build it directly from Android Studio or Xcode.
 
-## Screenshots
-![Screenshot](./Preview/Home%20Screen.png)
-![Screenshot](./Preview/Bottom%20Drawer.png)
