@@ -80,7 +80,8 @@ const styles = StyleSheet.create({
         gap: ResponsiveSizeWp(10),
         alignItems: 'center',
         paddingHorizontal: ResponsiveSizeWp(20),
-        paddingVertical: ResponsiveSizeWp(15),
+        paddingTop: ResponsiveSizeWp(5),
+        paddingBottom: ResponsiveSizeWp(15),
     },
     AppIconStyle: {
         width: ResponsiveSizeWp(38),
