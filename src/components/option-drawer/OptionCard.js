@@ -65,20 +65,19 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingRight: ResponsiveSizeWp(13),
-        gap: ResponsiveSizeWp(20),
+        gap: ResponsiveSizeWp(30),
     },
     TextContainer: {
         flex: 1,
-        gap: ResponsiveSizeWp(2),
     },
     TypeText: {
-        fontFamily: FontFamily.SemiBold,
+        fontFamily: FontFamily.Bold,
         fontSize: ResponsiveSizeWp(16),
         color: COLOR.BLACK,
     },
     DescriptionText: {
         fontFamily: FontFamily.Regular,
-        fontSize: ResponsiveSizeWp(11),
-        color: COLOR.BLACK_50,
+        fontSize: ResponsiveSizeWp(10),
+        color: COLOR.DARKGREY,
     },
 })

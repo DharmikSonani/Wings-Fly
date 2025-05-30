@@ -22,7 +22,7 @@ const DateController = ({
         }
     ), []);
 
-    const data = useMemo(() => dates.map((date) => ({ date, day: days[date.getDay()].toUpperCase() })), [dates])
+    const data = useMemo(() => dates.map((date) => ({ date, day: days[date.getDay()] })), [dates])
 
     const [selectedDate, setSelectedDate] = useState(format(new Date(), 'yyyy-MM-dd'))
 
@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     ContentContainer: {
         paddingHorizontal: ResponsiveSizeWp(12),
         gap: ResponsiveSizeWp(12),
+        paddingVertical: ResponsiveSizeWp(10),
     },
     TitleText: {
         fontSize: ResponsiveSizeWp(20),

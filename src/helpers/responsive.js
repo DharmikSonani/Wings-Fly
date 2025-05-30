@@ -47,7 +47,7 @@ export const useTopPadding = () => {
 
 export const useBottomSafeArea = () => {
   const insets = useSafeAreaInsets();
-  return insets.bottom;
+  return Platform.OS == 'ios' ? insets.bottom - ResponsiveSizeHp(10) : insets.bottom;
 }
 
 export const useBottomPadding = () => {
