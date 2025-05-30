@@ -1,18 +1,39 @@
-import { StyleSheet, Text, TouchableOpacity, View, } from 'react-native'
-import React, { memo, useCallback } from 'react'
+import { Animated, StyleSheet, Text, TouchableOpacity, View, } from 'react-native'
+import React, { memo, useCallback, useEffect, useRef } from 'react'
 import { COLOR } from '../../../helpers/colors'
 import { ResponsiveSizeWp } from '../../../helpers/responsive'
 import { FontFamily } from '../../../helpers/fonts'
+
+const offset = (index) => ResponsiveSizeWp(57) * index;
 
 const DateButton = ({
     index,
     selected,
     data,
     onSelect = () => { },
+    scrollX,
 }) => {
+
+    const inputRange = [
+        offset(index - 4),
+        offset(index - 3),
+        offset(index - 2),
+        offset(index - 1),
+        offset(index),
+        offset(index + 1),
+        offset(index + 2),
+        offset(index + 3),
+        offset(index + 4)
+    ]
+
+    const scale = scrollX && scrollX?.interpolate({
+        inputRange,
+        outputRange: [0, 1, 1, 1, 1, 1, 1, 1, 0],
+    })
+
     return (
         <TouchableOpacity
-            style={[styles.Container, selected && styles.SelectedContainer]}
+            style={[styles.Container, selected && styles.SelectedContainer, scale && { transform: [{ scale: scale }] }]}
             onPress={useCallback(() => { onSelect(data.date, index) }, [])}
         >
             <View style={[styles.DayContainer]}>

@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, } from 'react-native'
+import { Animated, StyleSheet, } from 'react-native'
 import React, { memo, useCallback, useEffect, useMemo, useState, useRef } from 'react'
 import { addDays, eachDayOfInterval, format, } from 'date-fns'
 import { ResponsiveSizeWp, screenWidth } from '../../../helpers/responsive'
@@ -11,6 +11,8 @@ const DateController = ({
 }) => {
 
     const ref = useRef();
+    const dateAnimation = useRef(new Animated.Value(0)).current;
+    const scrollX = useRef(new Animated.Value(0)).current;
 
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
@@ -28,6 +30,15 @@ const DateController = ({
 
     const [selectedDate, setSelectedDate] = useState(format(new Date(), 'yyyy-MM-dd'))
 
+    useEffect(() => {
+        Animated.timing(dateAnimation, {
+            useNativeDriver: true,
+            toValue: 1,
+            duration: 1000,
+        }).start();
+
+    }, [])
+
     useEffect(() => { onDateChange(selectedDate) }, [selectedDate])
 
     const handleDateSelection = useCallback((date, index) => {
@@ -36,13 +47,17 @@ const DateController = ({
     }, [])
 
     const handleScroll = useCallback((index) => {
-        const totalOffset = ResponsiveSizeWp(57) * index;
-        const offset = totalOffset;
+        const offset = ResponsiveSizeWp(57) * index;
         ref.current?.scrollToOffset({ offset, animated: true });
     }, [ref, screenWidth])
 
+    const animatedTranslateX = dateAnimation.interpolate({
+        inputRange: [0, 1],
+        outputRange: [screenWidth / 2, 0],
+    })
+
     return (
-        <FlatList
+        <Animated.FlatList
             ref={ref}
             data={data}
             keyExtractor={(item, index) => index.toString()}
@@ -52,10 +67,11 @@ const DateController = ({
                     data={item}
                     selected={new Date(selectedDate).getDate() === item.date.getDate()}
                     onSelect={handleDateSelection}
+                    scrollX={scrollX}
                 />
             }
             horizontal
-            style={styles.Container}
+            style={[styles.Container, { transform: [{ translateX: animatedTranslateX }] }]}
             contentContainerStyle={styles.ContentContainer}
             showsHorizontalScrollIndicator={false}
             getItemLayout={(data, index) => ({
@@ -63,6 +79,22 @@ const DateController = ({
                 offset: ResponsiveSizeWp(57) * index,
                 index
             })}
+            pagingEnabled
+            snapToInterval={ResponsiveSizeWp(57)}
+            onScroll={
+                Animated.event(
+                    [
+                        {
+                            nativeEvent: {
+                                contentOffset: {
+                                    x: scrollX,
+                                }
+                            },
+                        },
+                    ],
+                    { useNativeDriver: false }
+                )
+            }
         />
     )
 }

@@ -1,5 +1,5 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { memo } from 'react'
+import { Animated, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { memo, useEffect, useRef } from 'react'
 import { COLOR, FLAG_COLOR } from '../../../helpers/colors'
 import { ResponsiveSizeWp } from '../../../helpers/responsive'
 import { FontFamily } from '../../../helpers/fonts'
@@ -8,17 +8,53 @@ import FontAwesome6 from 'react-native-vector-icons/FontAwesome6'
 import Feather from 'react-native-vector-icons/Feather'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
+const duration = 300;
+
 const TaskCard = ({
+    index,
     color,
     data,
     onPress = () => { }
 }) => {
+    const cardAmin = useRef(new Animated.Value(0)).current;
+    const tickAnim = useRef(new Animated.Value(0)).current;
 
     const isCompleted = data?.status === 'completed';
 
+    useEffect(() => {
+        Animated.spring(cardAmin, {
+            toValue: 1,
+            useNativeDriver: true,
+            friction: 5,
+            delay: index * 200,
+        }).start();
+    }, [])
+
+    useEffect(() => {
+        startTickAnimation(isCompleted ? 1 : 0);
+    }, [isCompleted])
+
+    const animatedScale = cardAmin.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, 1],
+    })
+
+    const startTickAnimation = (toValue) => {
+        Animated.spring(tickAnim, {
+            toValue: toValue,
+            useNativeDriver: true,
+            friction: 5,
+        }).start();
+    }
+
+    const animatedTickScale = tickAnim.interpolate({
+        inputRange: [0, 0.5, 1],
+        outputRange: [1, 1.5, 1],
+    })
+
     return (
         <TouchableOpacity
-            style={styles.Container}
+            style={[styles.Container, { transform: [{ scale: animatedScale }] }]}
             activeOpacity={1}
             onPress={() => { onPress(data) }}
         >
@@ -59,7 +95,7 @@ const TaskCard = ({
                     </View>
                 </View>
 
-                <View style={[styles.CheckView, isCompleted && { backgroundColor: COLOR.LIGHTGREEN }]}>
+                <Animated.View style={[styles.CheckView, isCompleted && { backgroundColor: COLOR.LIGHTGREEN }, { transform: [{ scale: animatedTickScale }] }]}>
                     {
                         isCompleted &&
                         <FontAwesome6
@@ -68,7 +104,7 @@ const TaskCard = ({
                             color={COLOR.GREEN}
                         />
                     }
-                </View>
+                </Animated.View>
             </View>
         </TouchableOpacity>
     )

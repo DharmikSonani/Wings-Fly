@@ -44,6 +44,7 @@ const HomeScreen = () => {
                     keyExtractor={(item, index) => index.toString()}
                     renderItem={({ item, index }) =>
                         <TaskCard
+                            index={index}
                             data={item}
                             onPress={handleTaskPress}
                             color={CARD_COLORS[index]}
