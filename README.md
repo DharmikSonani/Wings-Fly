@@ -1,3 +1,6 @@
+# <!-- To watch the demo video, click the image or the link below -->
+👉 [Click here to watch the video](./Preview/Working%20Demo.mp4)
+
 # Screenshots
 ![HomeScreen](./Preview/Home%20Screen.png)
 ![BottomDrawer](./Preview/Bottom%20Drawer.png)
