@@ -33,7 +33,7 @@ export const TASK_DATA = [
         'time': '09:00 AM',
         'type': 'Habit',
         'tag': 'Must',
-        'status': 'completed',
+        'status': 'pending',
         'icon': Task1Icon,
         'icon2': <MaterialCommunityIcons name='timer-sand' size={ResponsiveSizeWp(13)} color={CARD_COLORS[0].color} />,
     },
