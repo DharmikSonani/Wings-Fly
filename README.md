@@ -1,6 +1,66 @@
 # <!-- To watch the demo video, click the image or the link below -->
 👉 [Click here to watch the video](./Preview/Working%20Demo.mp4)
 
+# Folder Structure
+
+```
+src/
+├── App.js
+├── assets/
+│   ├── fonts/
+│   │   ├── OpenSans-Bold.ttf
+│   │   ├── OpenSans-BoldItalic.ttf
+│   │   ├── OpenSans-ExtraBold.ttf
+│   │   ├── OpenSans-ExtraBoldItalic.ttf
+│   │   ├── OpenSans-Italic.ttf
+│   │   ├── OpenSans-Light.ttf
+│   │   ├── OpenSans-LightItalic.ttf
+│   │   ├── OpenSans-Medium.ttf
+│   │   ├── OpenSans-MediumItalic.ttf
+│   │   ├── OpenSans-Regular.ttf
+│   │   ├── OpenSans-SemiBold.ttf
+│   │   └── OpenSans-SemiBoldItalic.ttf
+│   ├── icons/
+│   └── images/
+├── components/
+│   ├── ScreenHeader.js
+│   ├── bottomsheet/
+│   │   └── BottomSheet.js
+│   ├── button/
+│   │   ├── FloatingButton.js
+│   │   └── IconButton.js
+│   └── option-drawer/
+│       ├── OptionCard.js
+│       └── OptionDrawer.js
+├── helpers/
+│   ├── assets.js
+│   ├── colors.js
+│   ├── demo.js
+│   ├── fonts.js
+│   ├── helper-functions.js
+│   ├── helper.js
+│   ├── responsive.js
+│   ├── strings.js
+│   └── styles.js
+├── hooks/
+│   └── ui/
+│       └── useKeyboardStatus.js
+├── navigation/
+│   ├── NavigationHandler.js
+│   └── helper.js
+├── screens/
+│   └── HomeScreen/
+│       ├── HomeScreen.Hooks.js
+│       ├── HomeScreen.js
+│       ├── styles.js
+│       └── components/
+│           ├── DateButton.js
+│           ├── DateController.js
+│           ├── ProgressLine.js
+│           ├── QuoteCard.js
+│           └── TaskCard.js
+```
+
 # Screenshots
 ![HomeScreen](./Preview/Home%20Screen.png)
 ![BottomDrawer](./Preview/Bottom%20Drawer.png)
